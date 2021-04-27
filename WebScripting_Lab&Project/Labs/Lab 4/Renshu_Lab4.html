@@ -1,0 +1,151 @@
+<html>
+	<head>
+		<title>Lab #4</title>
+		<script language="JavaScript" type="text/JavaScript">
+			// *************************************************************
+			// event handler is shared by the pulldown and checkbox controls
+			// to ensure that the only "Ontario" customers are members
+			function testMemberProvince() {
+				let ref = $gel("selProvinces");
+				let selectedProv = ref.options[ref.selectedIndex].text;
+
+				if ($gel("chkMember").checked && selectedProv !== "Ontario") {
+					alert("Only Ontario Customers are able to be members");
+					$gel("chkMember").checked = false;
+				}
+			}
+
+			// declare variables by using “let” declarations
+			let FirstName;
+			let LastName;
+			let Address;
+			let City;
+			let Province;
+			let PostalCode;
+			let Phone;
+			let Checked;
+
+			// ****************************************************
+			// event handler which is attached to the submit button
+			// tests all the text boxes for valid input
+			function submit() {
+				testEmpty("txtFirst");
+				testEmpty("txtLast");
+				testEmpty("txtAddress");
+				testEmpty("txtCity");
+				testEmpty("txtPostal");
+				testEmpty("txtPhone");
+
+				// get values from input
+				FirstName = $gel("txtFirst").value;
+				LastName = $gel("txtLast").value;
+				Address = $gel("txtAddress").value;
+				City = $gel("txtCity").value;
+				Province = $gel("selProvinces").value;
+				PostalCode = $gel("txtPostal").value;
+				Phone = $gel("txtPhone").value;
+				Checked = $gel("chkMember").checked;
+
+				// create a “set” (collection) object called “dataSet”
+				let dataSet = new Set();
+
+				dataSet.add(FirstName);
+				dataSet.add(LastName);
+				dataSet.add(Address);
+				dataSet.add(City);
+				dataSet.add(Province);
+				dataSet.add(PostalCode);
+				dataSet.add(Phone);
+				dataSet.add(Checked);
+
+				// Create a function called dumpSet(dataSet)
+				dumpSet(dataSet);
+
+				// create a map object called “dataMap”
+				let dataMap = new Map();
+
+				dataMap.set("txtFirst", FirstName);
+				dataMap.set("txtLast", LastName);
+				dataMap.set("txtAddress", Address);
+				dataMap.set("txtCity", City);
+				dataMap.set("selProvinces", Province);
+				dataMap.set("txtPostal", PostalCode);
+				dataMap.set("txtPhone", Phone);
+				dataMap.set("chkMember", Checked);
+
+				dumpMap(dataMap);
+
+			}
+
+			// *********************************************
+			// helper function is used to test each text box
+			// to ensure that something was entered
+			function testEmpty(id) {
+				if ($gel(id).value === "") {
+					$gel(id).style.backgroundColor = "pink";
+				}
+				else {
+					$gel(id).style.backgroundColor = "white";
+				}
+			}
+
+			// *********************************************************************
+			// helper function serves as a "wrapper" around document.getElementById
+			// the only benefit to using this function is to reduce typing elsewhere
+			function $gel(id) {
+				return document.getElementById(id);
+			}
+
+			function dumpSet(dataSet) {
+					dataSet.forEach(loopFor);
+				}
+
+				function dumpMap(dataMap) {
+					for (let [key, value] of dataMap) {
+						console.log(key + " = " + value);
+					}
+				}
+
+			function loopFor(value) {
+				console.log(value);
+			}
+		</script>
+	</head>
+	<body>
+		<div>First Name</div>
+		<input type="text" id="txtFirst" value="Sherlock" maxlength="50" size="50" />
+		<br /><br />
+		<div>Last Name</div>
+		<input type="text" id="txtLast" value="Holmes" maxlength="50" size="50" />
+		<br /><br />
+		<div>Address</div>
+		<input type="text" id="txtAddress" value="221 B Baker" maxlength="50" size="50" />
+		<br /><br />
+		<div>City</div>
+		<input type="text" id="txtCity" value="London" maxlength="40" size="40" />
+		<br /><br />
+		<div>Province</div>
+		<select id="selProvinces" onchange="testMemberProvince();">
+			<option >British Columbia</option>
+	  		<option >Alberta</option>
+	  		<option >Saskatchewan</option>
+	  		<option >Manitoba</option>
+			<option >Ontario</option>
+			<option >Quebec</option>
+			<option >Nova Scotia</option>
+			<option >Prince Edward Island</option>
+			<option >Newfoundland & Labrador</option>
+			<option >Northwest Territories</option>
+		</select>
+		<br /><br />
+		<div>Postal Code</div>
+		<input type="text" id="txtPostal" value="N6H 1V6" maxlength="7" size="7" />
+		<br /><br />
+		<div>Telephone</div>
+		<input type="text" id="txtPhone" value="519 555-1212" maxlength="12" size="12" />
+		<br /><br />
+		<label><input type="checkbox" id="chkMember" onclick="testMemberProvince();" />Is Member?</label><br />
+		<br /><br />
+		<input type="button" id="btnSubmit"  value="Submit" onclick="submit();"/>
+	</body>
+</html>

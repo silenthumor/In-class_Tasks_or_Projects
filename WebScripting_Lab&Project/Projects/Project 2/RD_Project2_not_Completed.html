@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .column {
+                float: left;
+                width: 32.00%;
+                padding: 10px;
+                height: 500px;
+                border: 1px solid black;
+                margin: 10px;
+            }
+
+            .column h2 {
+                text-align: center;
+            }
+
+            .column .content {
+                border: 1px solid black;
+                padding: 10px;
+                margin: 10px;
+                height: 250px;
+            }
+
+            .row::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+        </style>
+        <title>test1</title>
+        <script>
+            class Device {
+                constructor(ReplacementCost, SupplierName, SerialNumber, deployed) {
+                    this._ReplacementCost = ReplacementCost;
+                    this._SupplierName = SupplierName;
+                    this._SerialNumber = SerialNumber;
+                    this._deployed = deployed;
+                }
+
+                get ReplacementCost() {
+                    return this._ReplacementCost;
+                }
+
+                get SupplierName() {
+                    return this._SupplierName;
+                }
+
+                get SerialNumber() {
+                    return this._SerialNumber;
+                }
+
+                get deployed() {
+                    return this._deployed;
+                }
+
+                set ReplacementCost(NewReplacementCost) {
+                    this._ReplacementCost = NewReplacementCost;
+                }
+
+                set SupplierName(NewSupplierName) {
+                    this._SupplierName = NewSupplierName;
+                }
+
+                set SerialNumber(NewSerialNumber) {
+                    this._SerialNumber = NewSerialNumber;
+                }
+
+                set deployed(Newdeployed) {
+                    this._deployed = Newdeployed;
+                }
+            }
+
+            class Video_Device extends Device {
+                constructor(ReplacementCost, SupplierName, SerialNumber, deployed, Resolution, Type) {
+                    super(ReplacementCost, SupplierName, SerialNumber, deployed);
+                    this._Resolution = Resolution;
+                    this._Type = Type;
+                }
+
+                get Resolution() {
+                    return this._Resolution;
+                }
+
+                get Type() {
+                    return this._Type;
+                }
+
+                set Resolution(NewResolution) {
+                    this._Resolution = NewResolution;
+                }
+
+                set Type(NewType) {
+                    this._Type = NewType;
+                }
+            }
+
+            class Disk_Device extends Device {
+                constructor(ReplacementCost, SupplierName, SerialNumber, deployed, Size, TransferRate) {
+                    super(ReplacementCost, SupplierName, SerialNumber, deployed);
+                    this._Size = Size;
+                    this._TransferRate = TransferRate;
+                }
+
+                get Size() {
+                    return this._Size;
+                }
+
+                get TransferRate() {
+                    return this._TransferRate;
+                }
+
+                set Size(NewSize) {
+                    this._Size = NewSize;
+                }
+
+                set TransferRate(NewTransferRate) {
+                    this._TransferRate = NewTransferRate;
+                }
+            }
+
+            class Hard_Disk extends Disk_Device {
+                constructor(ReplacementCost, SupplierName, SerialNumber, deployed, Size, TransferRate, PlatterSize, NumberPlatters) {
+                    super(ReplacementCost, SupplierName, SerialNumber, deployed, Size, TransferRate);
+                    this._PlatterSize = PlatterSize;
+                    this._NumberPlatters = NumberPlatters;
+                }
+
+                get PlatterSize() {
+                    return this._PlatterSize;
+                }
+
+                get NumberPlatters() {
+                    return this._NumberPlatters;
+                }
+
+                set PlatterSize(NewPlatterSize) {
+                    this._PlatterSize = PlatterSize;
+                }
+
+                set NumberPlatters(NewNumberPlatters) {
+                    this._NumberPlatters = NewNumberPlatters;
+                }
+            }
+
+            class SSD extends Disk_Device {
+                constructor(ReplacementCost, SupplierName, SerialNumber, deployed, Size, TransferRate, SSDType, WearLeveling) {
+                    super(ReplacementCost, SupplierName, SerialNumber, deployed, Size, TransferRate);
+                    this._SSDType = SSDType;
+                    this._WearLeveling = WearLeveling;
+                }
+
+                get SSDType() {
+                    return this._SSDType;
+                }
+
+                get WearLeveling() {
+                    return this._WearLeveling;
+                }
+
+                set SSDType(NewSSDType) {
+                    this._SSDType = SSDType;
+                }
+
+                set WearLeveling(NewWearLeveling) {
+                    this._WearLeveling = WearLeveling;
+                }
+            }
+
+            var ReplacementCost = 0;
+            var SupplierName = "";
+            var SerialNumber = "";
+            var deployed = false;
+            var Resolution = "";
+            var Video_Device_Type = "";
+            var Disk_Device_Size = "";
+            var TransferRate = "";
+            var PlatterSize = "";
+            var NumberPlatters = 0;
+            var SSDType = "";
+            var WearLeveling = false;
+
+            function updateVideoDevice() {
+                ReplacementCost = document.getElementById("ReplacementCost").value;
+                SupplierName = document.getElementById("SupplierName").value;
+                SerialNumber = document.getElementById("SerialNumber").value;
+                deployed = document.getElementById("deployed").value;
+                Resolution = document.getElementById("Resolution").value;
+                Video_Device_Type = document.getElementById("Type").value;
+
+                // console.log(deployed);
+                // console.log(ReplacementCost);
+                // console.log(Resolution);
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="column">
+                <h2>Video Device</h2>
+                <div class="content">
+                <label for="deployed">Deployed</label>
+                <input type="checkbox" id="deployed" name="deployed" value="true">
+                <br>
+                <label for="ReplacementCost">Replacement Cost: $</label>
+                <input type="text" id="ReplacementCost" name="ReplacementCost">
+                <br>
+                <label for="SupplierName">Supplier Name: </label>
+                <input type="text" id="SupplierName" name="SupplierName">
+                <br>
+                <label for="SerialNumber">Serial Number: </label>
+                <input type="text" id="SerialNumber" name="SerialNumber">
+                <br>
+                <label for="Resolution">Resolution: </label>
+                <select name="Resolution" id="Resolution">
+                    <option value="1280 x 720">1280 x 720</option>
+                    <option value="1920 x 1080">1920 x 1080</option>
+                    <option value="2048 × 1080">2048 × 1080</option>
+                    <option value="3840 × 2160">3840 × 2160</option>
+                </select>
+                <br>
+                <label for="Type">Type: </label>
+                <select name="Type" id="Type">
+                    <option value="LCD">LCD</option>
+                    <option value="LED">LED</option>
+                    <option value="Plasma">Plasma</option>
+                </select>
+                <br>
+            </div>
+            <div class="option">
+                <input type="button" id="previous" value="Previous" onclick="" />
+                <input type="button" id="next" value="Next" onclick="" />
+                <input type="button" id="new" value="New" onclick="" />
+                <input type="button" id="update" value="Update" onclick="updateVideoDevice();" />
+            </div>
+            </div>
+            <div class="column">
+                <h2>Hard Disk</h2>
+                <div class="content">
+                <label for="deployed">Deployed</label>
+                <input type="checkbox" id="deployed" name="deployed" value="true">
+                <br>
+                <label for="ReplacementCost">Replacement Cost: $</label>
+                <input type="text" id="ReplacementCost" name="ReplacementCost">
+                <br>
+                <label for="SupplierName">Supplier Name: </label>
+                <input type="text" id="SupplierName" name="SupplierName">
+                <br>
+                <label for="SerialNumber">Serial Number: </label>
+                <input type="text" id="SerialNumber" name="SerialNumber">
+                <br>
+                <label for="Type">Size: </label>
+                <select name="Type" id="Type">
+                    <option value="1TB">1TB</option>
+                    <option value="2TB">2TB</option>
+                    <option value="4TB">4TB</option>
+                </select>
+                <br>
+                <label for="TransferRate">Transfer Rate: </label>
+                <select name="TransferRate" id="TransferRate">
+                    <option value="3GB / second">3GB / second</option>
+                    <option value="5GB / second">5GB / second</option>
+                    <option value="7GB / second">7GB / second</option>
+                </select>
+                <br>
+                <label for="Platter Size">Platter Size: </label>
+                <select name="PlatterSize" id="PlatterSizee">
+                    <option value="2.5 inches">2.5 inches</option>
+                    <option value="3.5 inches">3.5 inches</option>
+                </select>
+                <br>
+                <label for="NumberPlatters"># of Platters: </label>
+                <select name="NumberPlatters" id="NumberPlatters">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+                <br>
+            </div>
+            <div class="option">
+                <input type="button" id="previous" value="Previous" onclick="" />
+                <input type="button" id="next" value="Next" onclick="" />
+                <input type="button" id="new" value="New" onclick="" />
+                <input type="button" id="update" value="Update" onclick="" />
+            </div>
+            </div>
+            <div class="column">
+                <h2>SSD</h2>
+                <div class="content">
+                <label for="deployed">Deployed</label>
+                <input type="checkbox" id="deployed" name="deployed" value="true">
+                <br>
+                <label for="ReplacementCost">Replacement Cost: $</label>
+                <input type="text" id="ReplacementCost" name="ReplacementCost">
+                <br>
+                <label for="SupplierName">Supplier Name: </label>
+                <input type="text" id="SupplierName" name="SupplierName">
+                <br>
+                <label for="SerialNumber">Serial Number: </label>
+                <input type="text" id="SerialNumber" name="SerialNumber">
+                <br>
+                <label for="Type">Size: </label>
+                <select name="Type" id="Type">
+                    <option value="1TB">1TB</option>
+                    <option value="2TB">2TB</option>
+                    <option value="4TB">4TB</option>
+                </select>
+                <br>
+                <label for="TransferRate">Transfer Rate: </label>
+                <select name="TransferRate" id="TransferRate">
+                    <option value="3GB / second">3GB / second</option>
+                    <option value="5GB / second">5GB / second</option>
+                    <option value="7GB / second">7GB / second</option>
+                </select>
+                <br>
+                <label for="Type">Type: </label>
+                <select name="Type" id="Type">
+                    <option value="Flash">Flash</option>
+                    <option value="DRAM">DRAM</option>
+                </select>
+                <br>
+                <label for="WearLeveling">Wear Leveling</label>
+                <input type="checkbox" id="WearLeveling" name="WearLeveling" value="true">
+                <br>
+                </div>
+                <div class="option">
+                    <input type="button" id="previous" value="Previous" onclick="" />
+                    <input type="button" id="next" value="Next" onclick="" />
+                    <input type="button" id="new" value="New" onclick="" />
+                    <input type="button" id="update" value="Update" onclick="" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

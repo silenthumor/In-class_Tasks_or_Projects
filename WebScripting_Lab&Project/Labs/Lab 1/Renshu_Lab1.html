@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <head>
+        <title>My First Page</title>
+        <script>
+            //creat 6 variables
+            let userName = "";
+            let userAddress = "";
+            let userCity = "";
+            let userProvince = "";
+            let userAccountBalance = 0.0;
+            let totalBalance = 0.0;
+
+            //ask user type their name, address, city, province, and account balance and assign the result to variables
+            userName = prompt("Enter full name ", "No Name");
+            userAddress = prompt("Enter address ", "No Address");
+            userCity = prompt("Enter city ", "London");
+            userProvince = prompt("Enter province", "Ontario");
+            userAccountBalance = prompt("Enter balance", "0.0");
+
+            //convert the text version of balance to the number version
+            userAccountBalance = parseInt(userAccountBalance);
+
+            //determine whethere the amount of account is greater than 1,000
+            if ( userAccountBalance > 0 && userAccountBalance < 1000) // 0 - 1000 charge 2%
+            {
+            totalBalance = userAccountBalance * (1 + 0.02);
+            }
+            else if ( userAccountBalance >= 1000) // >= 1000 charge 3%
+            {
+            totalBalance = userAccountBalance * (1 + 0.03);
+            }
+
+            //display the output
+            document.write("Full Name: " + userName + "<br>");
+            document.write("Address: " + userAddress + "<br>");
+            document.write("City: " + userCity + "<br>");
+            document.write("Province: " + userProvince + "<br>");
+            document.write("Account Balance: " + userAccountBalance + "<br>");
+            document.write("Total Owing: " + totalBalance + "<br>");
+
+            //if balance = 0, output the message
+            if (userAccountBalance == 0) {
+            document.write("<br>Thank-you for your payment<br>");
+            }
+        </script>
+    </head>
+</html>

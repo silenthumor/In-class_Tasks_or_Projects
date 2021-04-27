@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timeout</title>
+        <meta charset="utf-8" />
+        <style type="text/css" >
+            #outDiv {
+            position: absolute;
+            top: auto;
+            left: 10px;
+            width: 1024px;
+            height: 500px;
+            background-color: #e9e9e9;
+            }
+        </style>
+        <script>
+            function printString(){
+                str="The nefarious thing about performance bugs is that the user may never know they are there - the program appears to work correctly, carrying out the correct operations, showing the right thing on the screen or printing the right text. It just does it a bit more slowly than it should have. It takes an experienced programmer, with a reasonably accurate mental model of the problem and the correct solution, to know how fast the operation should have been performed, and hence if the program is running slower than it should be";
+                var myNextChar="";
+                var char=0;
+
+                function innerLoop(){
+                    myNextChar=str.slice(char,char+1);
+                        if((char+1)%100===0){
+                            myNextChar+="<br />"
+                        }
+
+                    char++;
+
+                    document.getElementById("outDiv").innerHTML += myNextChar;
+
+                    var id = setTimeout(innerLoop,10);
+
+                    if(char > str.length) clearTimeout(id);
+
+                }
+
+                innerLoop();
+
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" id="btnPrint" value="Print" onclick="printString();" />
+        <div id="outDiv" ></div>
+    </body>
+</html>

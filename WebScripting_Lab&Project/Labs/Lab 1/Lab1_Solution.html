@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>Lab #1 Solution</title>
+		<script language="JavaScript" type="text/JavaScript">
+			// use prompt to enter data into all the basic variables 
+			var fullName = prompt("Enter your full name:", "No Name");
+			var address = prompt("Enter your address:", "No Address");
+			var city = prompt("Enter your city:", "London");
+			var province = prompt("Enter your province:", "Ontario");
+			var accountBal = prompt("Enter account balance:", "0.0");
+			
+			// convert the string version of accountBal
+			// to the number version
+			accountBal = parseFloat(accountBal);
+			
+			// in this case parseInt would also work
+			//accountBal = parseInt(accountBal);
+			
+			// strictly speaking, you could create a new variables
+			// for the number version rather than convert the existing one
+			//var accountBalNum = parseFloat(accountBal);
+			
+			// create and initialize a penalty variable
+			var penalty = 0;
+			
+			// calculate a penalty of 2% for small balances
+			if (accountBal < 1000) {
+				penalty = accountBal * 0.02;
+			}
+			
+			// calculate a penalty of 3% for larger balances
+			if (accountBal >= 1000) {
+				penalty = accountBal * 0.03;
+			}
+			
+			// create a totalOwing variable and assign the value
+			var totalOwing = accountBal + penalty;
+			
+			// perform all the basic output
+			// added in the ability to format the dollars and cents output
+			// ... not required for the solution
+			document.write("Full Name: " + fullName + "<br>");
+			document.write("Address: " + address + "<br>");
+			document.write("City: " + city + "<br>");
+			document.write("Province: " + province + "<br>");
+			document.write("Account Balance: " + "$" + accountBal.toFixed(2) + "<br>");
+			document.write("Total Owing: " + "$" + totalOwing.toFixed(2) + "<br><br>");
+			
+			// if account balance is zero, than the customer
+			if (accountBal === 0) {
+				document.write("Thank-you for your payment");
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

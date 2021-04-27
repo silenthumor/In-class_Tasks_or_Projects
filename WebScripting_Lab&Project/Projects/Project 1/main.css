@@ -1,0 +1,23 @@
+body {
+    background-color: antiquewhite;
+}
+
+#btnAsynch, #previous_game, #next_game, #save_changes {
+    border: 2px solid lightskyblue;
+}
+
+#retrieve_date {
+    width: 10%;
+    float: left;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+#game_display {
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+    overflow: hidden;
+    text-align: left;
+}

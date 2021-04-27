@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Lab #2 Solution</title>
+        <style type="text/css">
+			body {
+				background-color:lightblue;
+			}
+
+			.BtnButton {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 8pt;
+				color: black;
+				height: 24px;
+				cursor: pointer;
+			}
+			.DivOutput {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 10pt;
+				color: black;
+				background-color:aliceblue;
+			}
+        </style>
+        <script language="JavaScript" type="text/JavaScript">
+			function InvType(prodId, supplierCode, description, pictureName, qtyOnHand, price) {
+				var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+				this.prodId = prodId;
+				this.supplierCode = supplierCode;
+				this.description = description;
+				this.pictureName = pictureName;
+				this.qtyOnHand = qtyOnHand;
+				this.price = price;
+
+				var now = new Date();
+				var xMonth = now.getMonth();
+
+				this.dateCreated = months[xMonth] + " " + now.getDate() + ", " + now.getFullYear();
+			}
+
+			function getData(ref) {
+				var text = ref.value;
+
+				if (text === "Koalas") {
+					text += "<br> " + koala.prodId + "<br>" + koala.supplierCode + "<br>" + koala.description + "<br>" + koala.pictureName + "<br>" + koala.qtyOnHand + "<br>" + koala.price + "<br>" + koala.dateCreated;
+					document.getElementById("pics").src = "pictures/" + koala.pictureName;
+				}
+				else if (text === "Tulips") {
+					text += "<br> " + tulip.prodId + "<br>" + tulip.supplierCode + "<br>" + tulip.description + "<br>" + tulip.pictureName + "<br>" + tulip.qtyOnHand + "<br>" + tulip.price + "<br>" + tulip.dateCreated;
+					document.getElementById("pics").src = "pictures/" + tulip.pictureName;
+				}
+				else {
+					text += "<br> " + penguin.prodId + "<br>" + penguin.supplierCode + "<br>" + penguin.description + "<br>" + penguin.pictureName + "<br>" + penguin.qtyOnHand + "<br>" + penguin.price + "<br>" + penguin.dateCreated;
+					document.getElementById("pics").src = "pictures/" + penguin.pictureName;
+				}
+
+				document.getElementById("outputStuff").innerHTML = text;
+			}
+
+			var koala = new InvType(1002, "s1001", "Koalas", "Koala.jpg", 9, 119.95);
+			var tulip = new InvType(1003, "s1002", "Tulips", "Tulips.jpg", 9, 7.95);
+			var penguin = new InvType(1004, "s1003", "Penguins", "Penguins.jpg", 9, 127.95);
+        </script>
+    </head>
+    <body>
+        <input
+            type="button"
+            id="btnKoala"
+            class="BtnButton"
+            onclick="getData(this);"
+            value="Koalas"
+        >
+        <br>
+        <br>
+        <input
+            type="button"
+            id="btnTulip"
+            class="BtnButton"
+            onclick="getData(this);"
+            value="Tulips"
+        >
+        <br>
+        <br>
+        <input
+            type="button"
+            id="btnPenguin"
+            class="BtnButton"
+            onclick="getData(this);"
+            value="Penguins"
+        >
+        <br>
+        <br>
+        <div id="outputStuff" class="DivOutput"></div>
+        <img id="pics" src="">
+    </body>
+</html>

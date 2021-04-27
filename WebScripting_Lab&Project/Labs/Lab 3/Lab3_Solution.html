@@ -1,0 +1,48 @@
+﻿<html>
+<head>
+    <title>Exercise 4</title>
+    <script>
+		function printString() {
+			// load the block of text as a single string into a JS variable
+			var sentence = "The nefarious thing about performance bugs is that the user may never know they are there - the program appears to work correctly, carrying out the correct operations, showing the right thing on the screen or printing the right text. It just does it a bit more slowly than it should have. It takes an experienced programmer, with a reasonably accurate mental model of the problem and the correct solution, to know how fast the operation should have been performed, and hence if the program is running slower than it should be";
+			
+			// setup counters for all the characters and to
+			// count the characters per line
+			var totalCount = 0;
+			var lineCount = 0;
+
+			// the inner function which we'll use for looping through all the characters
+			// recursively
+			function nextChar() {
+				if (totalCount < sentence.length) {
+					if (lineCount === 100) {
+						// output a <br> for a new line and then reset the line character counter
+						document.getElementById("outDiv").innerHTML += "</br>";
+						lineCount = 0;
+					}
+
+					// output the next character
+					document.getElementById("outDiv").innerHTML += sentence.charAt(totalCount);
+					totalCount++;
+					lineCount++;
+
+					// if the entire text hasn't yet been printed,
+					// call the function nextChar recursively after
+					// waiting 10 milliseconds
+					setTimeout(nextChar, 10);
+				}
+			}
+
+			// call nextChar the first time
+			// we use setTimeout here as well because the exercise spec
+			// requires us to use a 10 ms delay with each character,
+			// including the first one
+			setTimeout(nextChar, 10);
+		}
+    </script>
+</head>
+<body>
+	<input type="button" id="btnPrint"  value="Print" onclick="printString();" />
+	<div id="outDiv"></div>
+</body>
+</html>

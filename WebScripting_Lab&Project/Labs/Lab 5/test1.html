@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>test1</title>
+    <script>
+        var infoJSON = '{"First Name":"Sherlock","Last Name":"Holmes","Address":"221 B Baker","City":"London","Province":"ON","Postal Code":"N6H 1V6","Telephone":"519 555-1212","Is Member":"Yes"}';
+
+        var info = JSON.parse(infoJSON);
+
+        function process(key, value) {
+            var renderUI = "";
+
+            if (typeof value !== "object") {
+                document.getElementById("ui").innerHTML += '<div>' + key + ':</div>';
+                document.getElementById("ui").innerHTML += '<input type="text" id="' + key + '" width="30" value="' + value + '" />';
+            }
+            else {
+                document.getElementById("ui").innerHTML += "<br />";
+                document.getElementById("ui").innerHTML += '<div>' + key + ' Object:</div>';
+            }
+
+            document.getElementById("ui").innerHTML += "<br />";
+        }
+
+        function traverse(obj, func) {
+            for (var i in obj) {
+                func(i, obj[i]);
+                if (obj[i] !== null && typeof (obj[i]) == "object") {
+                    traverse(obj[i], func);
+                }
+            }
+        }
+
+        function initAll() {
+            traverse(info, process);
+            // document.getElementById("controller").innerHTML += '<br />';
+            // document.getElementById("controller").innerHTML += '<br />';
+        }
+
+        // function doUI(type) {
+        //     document.getElementById("ui").innerHTML = "";
+        //     traverse(type, process);
+        // }
+    </script>
+    </head>
+    <body onload="initAll();">
+        <div id="ui"></div>
+        <!-- <div id="controller"></div> -->
+
+    </body>
+</html>

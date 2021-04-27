@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Major League Baseball Form</title>
+        <link href="main.css" rel="stylesheet" />
+        <Script>
+            const ISOK = 200;
+
+            var year = 0;
+            var month = 0;
+            var day = 0;
+            var tempURL = "";
+
+            var gameIndex = 0;
+            var gameLen = 0;
+
+			var request = new XMLHttpRequest();
+		
+			function getJSONAsync(url) {
+				request.onload = function() {
+					if (request.status === ISOK) {
+						//document.getElementById("jsonDiv").innerHTML = request.responseText;
+						var jsObject = JSON.parse(request.responseText);
+
+                        gameLen = jsObject.data.games.game.length;
+
+                        if (gameIndex === gameLen) {
+                            gameIndex = 0;
+                        }
+
+                        if (gameIndex === -1) {
+                            gameIndex = gameLen - 1;
+                        }
+
+                        //document.getElementById("demo").innerHTML += "<br/>game index: " + gameIndex;
+                        //document.getElementById("demo").innerHTML += "<br/>game len: " + gameLen;
+
+                        var home_team_name = jsObject.data.games.game[gameIndex].home_team_name;
+                        document.getElementsByName("home_team_name")[0].value = home_team_name;
+
+                        var away_team_name = jsObject.data.games.game[gameIndex].away_team_name;
+                        document.getElementsByName("away_team_name")[0].value = away_team_name;
+
+                        var winning_pitcher_first = jsObject.data.games.game[gameIndex].winning_pitcher.first;
+                        var winning_pitcher_last = jsObject.data.games.game[gameIndex].winning_pitcher.last;
+                        var winning_pitcher = winning_pitcher_first + " " + winning_pitcher_last;
+                        document.getElementsByName("winning_pitcher")[0].value = winning_pitcher;
+
+                        var losing_pitcher_first = jsObject.data.games.game[gameIndex].losing_pitcher.first;
+                        var losing_pitcher_last = jsObject.data.games.game[gameIndex].losing_pitcher.last;
+                        var losing_pitcher = losing_pitcher_first + " " + losing_pitcher_last;
+                        document.getElementsByName("losing_pitcher")[0].value = losing_pitcher;
+
+                        var venue = jsObject.data.games.game[gameIndex].venue;
+                        document.getElementsByName("venue")[0].value = venue;
+					}
+				};
+				request.open("GET", url, true);
+				request.send();
+			}
+
+			function getDataAsynch() {
+				year = document.getElementById("year").value;
+                //document.getElementById("demo").innerHTML += "Year: " + year;
+
+				month = document.getElementById("month").value;
+                //document.getElementById("demo").innerHTML += " Month: " + month;
+
+				day = document.getElementById("day").value;
+                //document.getElementById("demo").innerHTML += " Day: " + day;
+				
+				tempURL = "http://gd2.mlb.com/components/game/mlb/year_" + year + "/month_" + month + "/day_" + day + "/master_scoreboard.json";
+				getJSONAsync(tempURL);
+			}
+
+            function nextGame() {
+                gameIndex++;
+                getJSONAsync(tempURL);
+            }
+
+            function previousGame() {
+                gameIndex--;
+                getJSONAsync(tempURL);
+            }
+        </Script>
+    </head>
+    <body>
+
+        <div id="retrieve_date">
+            <label for="date">Year</label>
+            <select name="year" id="year">
+                <option value=""></option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+            </select>
+            <br />
+
+            <label for="date">Month</label>
+            <select name="month" id="month">
+                <option value=""></option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <br />
+
+            <label for="date">Day</label>
+            <select name="day" id="day">
+                <option value=""></option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            <br />
+
+        </div>
+        <input type="button" id="btnAsynch" value="Retrieve" onclick="getDataAsynch();" />
+        <br />
+
+        <div id="game_display">
+            <label for="display">Home Team Name</label>
+            <input type="textbox" name="home_team_name" maxlength="40" size="40">
+            <br />
+
+            <label for="display">Away Team Name</label>
+            <input type="textbox" name="away_team_name" maxlength="40" size="40">
+            <br />
+
+            <label for="display">Winning Pitcher</label>
+            <input type="textbox" name="winning_pitcher" maxlength="40" size="40">
+            <br />
+
+            <label for="display">Losing Pitcher</label>
+            <input type="textbox" name="losing_pitcher" maxlength="40" size="40" />
+            <br />
+
+            <label for="display">Venue</label>
+            <input type="textbox" name="venue" maxlength="40" size="40" />
+            <br />
+        </div>
+
+        <div id="next_previous">
+            <input type="button" id="previous_game" value="Previous Game" onclick="previousGame();" />
+            <input type="button" id="next_game" value="Next Game" onclick="nextGame();" />
+            <input type="button" id="save_changes" value="Save Changes" onclick="" />
+        </div>
+
+        <!-- <br /><br />
+		<div id="jsonDiv"></div>
+
+        <p id="demo"></p> -->
+    </body>
+</html>

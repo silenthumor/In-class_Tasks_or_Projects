@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Renshu Dong Lab2</title>
+        <style type="text/css">
+        body {
+            background-color: #99ff99;
+        }
+
+        .BtnButton {
+            font-family: Verdana, Arial, Helvetica;
+            font-size: 8pt;
+            color: black;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .DivOutput {
+            font-family: Verdana, Arial, Helvetica;
+            font-size: large;
+            color: red;
+            background-color: lightsalmon;
+        }
+        </style>
+        <script>
+            // this is a constructor function used to create a new object
+		    // based on the parameters passed over
+            function AnilmalObjects(name, Id, supplierCode, description, pictureName, qtyOnHand, price) {
+                // "this" references the current object being created
+			    // to ensure that each object has its own private data
+                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+                this.name = name;
+                this.Id = Id;
+                this.supplierCode = supplierCode;
+                this.description = description;
+                this.pictureName = pictureName;
+                this.qtyOnHand = qtyOnHand;
+                this.price = price;
+
+                var now = new Date();
+                var xMonth = now.getMonth();
+
+                this.dateCreated = months[xMonth] + " " + now.getDate() + ", " + now.getFullYear();
+            }
+
+            // creates objects
+            var Koalas = new AnilmalObjects("koala", 1002, "s1001", "Koalas", "Koala.jpg", 9, 119.95);
+            var Tulips = new AnilmalObjects("tulip", 1003, "s1003", "Tutlips", "Tulips.jpg", 9, 7.95);
+            var Penguins = new AnilmalObjects("penguin", 1004, "s1003", "Penguins", "Penguins.jpg", 9, 127.95);
+
+            // prints out objects using document.getElementById
+            function showProperties(text) {
+                // Combine all properties into a string
+                properties = text.name + "<br> " +
+                text.Id + "<br> " +
+                text.supplierCode + "<br>" +
+                text.description + "<br>" +
+                text.pictureName + "<br>" +
+                text.qtyOnHand + "<br>" +
+                text.price + "<br>" +
+                text.dateCreated;
+                // print objects' "properties" string part
+                document.getElementById("outputStuff").innerHTML = properties;
+                // print pics part
+                document.getElementById("pics").src = "pictures/" + text.pictureName;
+            }
+        </script>
+    </head>
+    <body>
+        <input
+            type="button"
+            id="btnKoala"
+            class="BtnButton"
+            onclick="showProperties(Koalas);"
+            value="Koalas"
+        >
+        <br>
+        <br>
+        <input
+            type="button"
+            id="btnTulip"
+            class="BtnButton"
+            onclick="showProperties(Tulips);"
+            value="Tulips"
+        >
+        <br>
+        <br>
+        <input
+            type="button"
+            id="btnPenguin"
+            class="BtnButton"
+            onclick="showProperties(Penguins);"
+            value="Penguins"
+        >
+        <br>
+        <br>
+        <div id="outputStuff" class="DivOutput"></div>
+        <br>
+        <img id="pics" src="">
+    </body>
+</html>
