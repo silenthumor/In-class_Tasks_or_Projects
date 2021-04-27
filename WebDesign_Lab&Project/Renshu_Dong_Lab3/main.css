@@ -1,0 +1,185 @@
+body{
+    /* or Charcoal, Helvetica Inserat, Frankline Gothic Bold etc */
+    font: 100%/1.2 Georgia, Times, "Times New Roman", serif;
+    background: lightcoral;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, a{
+    font-family: Impact, Haettenschweiler, sans-serif;
+    color: #666;
+}
+
+#wrap{
+    width: 85%;
+    background: white;
+    margin: 0 auto;
+}
+
+header{
+    background-color:#BD4932;
+    padding-top: 13%;
+    padding-bottom: 1%;
+    text-align: center;
+}
+
+header h1{
+   margin: 0;
+   font-size: 350%;
+   display: block;
+   color: white;
+   text-shadow: 1px 1px 2px #666;
+}
+
+ul{
+    margin: 4% 0;
+    padding:0;
+    text-align:center;
+    list-style-type: none;
+}
+
+li{
+    padding-right: 6%;
+    display: inline;
+}
+
+li:first-child{
+    margin-left: 6%;
+}
+
+a{
+    font-size: 130%;
+    text-decoration: none;
+    color: #666;
+}
+
+main{
+    overflow: hidden;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+}
+
+main h1{
+    margin-bottom: 3%;
+}
+
+section, aside{
+    float: left;
+    margin:0;
+    width: 46%;
+    border: 1px solid #666;
+    padding: 1%;
+    border-radius: 20px;
+}
+
+section{
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+img{
+    float:left;
+    margin-right: 2%;
+}
+
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+footer{
+    clear:both;
+    background-color:#BD4932;
+    padding: 2%;
+}
+
+footer a{
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    body{
+        background-color: lightcyan;
+    }
+
+    #wrap{
+        width: 95%;
+    }
+
+    header{
+        background-color:  #14727D;
+        padding-bottom: 3%;
+    }
+
+    header h1{
+        font-size: 250%;
+    }
+    
+    section, aside{
+        clear: both;
+        width: 100%;
+    }
+
+    footer{
+        background-color:  #14727D;
+    }
+    
+    footer li{
+        padding-right: 3%;
+    }
+
+    footer a{
+        font-size: 140%; 
+    }
+}
+
+@media screen and (max-width: 480px){
+    #wrap{
+        width: 100%;
+        
+    }
+
+    header{
+        background-color:  #DB9E36;
+    }
+
+    header h1{
+        font-size: 200%;
+    }
+
+    ul{
+        margin: 0;
+    }
+    li{
+        display: block;
+        padding: 4%;
+        border-bottom: 1px solid #666;
+    }
+
+    li:first-child{
+        margin-left:0;
+    }
+
+    a{
+        display: block;
+    }
+
+    main{
+        padding: 2%;
+    }
+
+    section,aside{
+        border: none;
+    }
+    footer{
+        background-color:  #DB9E36;
+        padding: 0;
+       margin-bottom: 0;
+    }
+
+    footer li{
+        border-bottom: 1px solid white;
+    }
+
+}

@@ -1,0 +1,64 @@
+#header,
+#nav,
+#content {
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+#header {
+    background-image: url(images/dark-tile.gif);
+    padding-left: 0px;
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    color: #fff;
+    font-size: 72px;
+    font-weight: normal;
+    margin: 0px;
+    padding-left: 150px;
+}
+
+#nav {
+    color: #a25c3a;
+    font-size: 24px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 150px;
+}
+
+li {
+    display: inline;
+    padding-right: 25px;
+}
+
+#pic {
+    float: left;
+    border: 2px solid #000;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+#content {
+    font-size: 18px;
+    line-height: 1.7;
+    padding-left: 150px;
+    padding-right: 150px;
+    text-align: justify;
+}
+
+span {
+    color: #a25c3a;
+}
+
+#footer {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding-left: 150px;
+}

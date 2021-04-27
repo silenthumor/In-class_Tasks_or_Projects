@@ -1,0 +1,146 @@
+header, section, nav {
+    display: block;
+}
+
+header img {
+    width: 100%;
+}
+
+body {
+    background-color: #142e14;
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#wrap {
+    width: 85%;
+    background-color: white;
+    border: 2px solid black;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+section, aside {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+section {
+    float: left;
+    width: 65%;
+    margin: 0;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+section img {
+    float: left;
+    margin: 0;
+    padding: 20px;
+}
+
+aside {
+    float: right;
+    width: 23%;
+    margin: 0;
+    padding-top: 70px;
+    padding-right: 30px;
+}
+
+h1,h2 {
+    font-size: 200%;
+    padding-left: 2%;
+    font-family:"Sofia", sans-serif;
+    color: #333;
+    text-shadow: 2px 2px 5px #142e14;
+}
+
+ul{
+    list-style: none;
+    text-align: center;
+}
+
+li{
+    display: inline-block;
+}
+
+nav ul{
+    margin-top: 3%;
+}
+
+nav ul li{
+    background: gray;
+    margin-right: 2%;
+    width: 200px;
+    padding: 2%;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    transition: border-radius 0.5s;
+}
+
+nav li:hover{
+    background-color: #496B87;
+    color: gray;
+    transform: rotate(2deg);
+    border-radius: 0px 30px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+footer {
+    clear: both;
+}
+
+@media screen and (max-width: 600px){
+    #wrap{
+        width: 100%;
+    }
+
+    section img{
+        display: none;
+    }
+
+    header img {
+        width: 100%;
+    }
+
+    header h1{
+        font-size: 200%;
+    }
+
+    ul{
+        margin: 0;
+    }
+    li{
+        display: block;
+        padding: 4%;
+    }
+
+    li:first-child{
+        margin-left:0;
+    }
+
+    a{
+        display: block;
+    }
+
+    section,aside{
+        width: 80%;
+        float: none;
+        margin: 0;
+        margin-top: 20px;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height: 1.7;
+    }
+
+}
