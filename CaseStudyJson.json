@@ -1,8 +1,152 @@
-[{"PRODUCTNAME":"RTX 3070Ti"},
-{"GRAPHICNAME":"3070Ti_Nvdia"},
-{"COSTPRICE":"599"},
-{"MSRP":"599"},
-{"QtyOnBackOrder":"10"},
-{"QtyOnHand":"10"},
-{"DESCRIPTION":"The GeForce RTX 3070 Ti is a high-end graphics card by NVIDIA, launched on May 31st, 2021. Built on the 8 nm process, and based on the GA104 graphics processor, in its GA104-400-A1 variant, the card supports DirectX 12 Ultimate."},
-{"BRAND":"NVIDIA"}]
+[
+    {
+        "PRODUCTNAME": "GeForce RTX 3070",
+        "GRAPHICNAME": "3070_Nvdia",
+        "COSTPRICE": "499",
+        "MSRP": "499",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "The GeForce RTX 3070 is a high-end graphics card by NVIDIA, launched on September 1st, 2020. Built on the 8 nm process, and based on the GA104 graphics processor, in its GA104-300-A1 variant, the card supports DirectX 12 Ultimate.",
+        "BRAND": "NVIDIA"
+    },
+    {
+        "PRODUCTNAME": "GeForce RTX 3070 Ti",
+        "GRAPHICNAME": "3070Ti_Nvdia",
+        "COSTPRICE": "599",
+        "MSRP": "599",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "The GeForce RTX 3070 Ti is a high-end graphics card by NVIDIA, launched on May 31st, 2021. Built on the 8 nm process, and based on the GA104 graphics processor, in its GA104-400-A1 variant, the card supports DirectX 12 Ultimate.",
+        "BRAND": "NVIDIA"
+    },
+    {
+        "PRODUCTNAME": "GeForce RTX 3080",
+        "GRAPHICNAME": "3080_Nvdia",
+        "COSTPRICE": "699",
+        "MSRP": "699",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "The GeForce RTX 3080 is an enthusiast-class graphics card by NVIDIA, launched on September 1st, 2020. Built on the 8 nm process, and based on the GA102 graphics processor, in its GA102-200-KD-A1 variant, the card supports DirectX 12 Ultimate.",
+        "BRAND": "NVIDIA"
+    },
+    {
+        "PRODUCTNAME": "GeForce RTX 3080 Ti",
+        "GRAPHICNAME": "3080Ti_Nvdia",
+        "COSTPRICE": "1199",
+        "MSRP": "1199",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "The GeForce RTX 3080 Ti is an enthusiast-class graphics card by NVIDIA, launched on May 31st, 2021. Built on the 8 nm process, and based on the GA102 graphics processor, in its GA102-225-A1 variant, the card supports DirectX 12 Ultimate.",
+        "BRAND": "NVIDIA"
+    },
+    {
+        "PRODUCTNAME": "GeForce RTX 3090",
+        "GRAPHICNAME": "3090_Nvdia",
+        "COSTPRICE": "1499",
+        "MSRP": "1499",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "The GeForce RTX 3090 is an enthusiast-class graphics card by NVIDIA, launched on September 1st, 2020. Built on the 8 nm process, and based on the GA102 graphics processor, in its GA102-300-A1 variant, the card supports DirectX 12 Ultimate.",
+        "BRAND": "NVIDIA"
+    },
+    {
+        "PRODUCTNAME": "TUF Gaming GeForce RTX 3070",
+        "GRAPHICNAME": "3070_tuf",
+        "COSTPRICE": "499",
+        "MSRP": "499",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "The TUF GAMING GeForce RTX 3070 has been stripped down and built back up to provide more robust power and cooling.",
+        "BRAND": "ASUS"
+    },
+    {
+        "PRODUCTNAME": "TUF Gaming GeForce RTX 3070 Ti",
+        "GRAPHICNAME": "3070Ti_tuf",
+        "COSTPRICE": "599",
+        "MSRP": "599",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "The TUF GAMING GeForce RTX 3070 Ti has been stripped down and built back up to provide more robust power and cooling.",
+        "BRAND": "ASUS"
+    },
+    {
+        "PRODUCTNAME": "TUF Gaming GeForce RTX 3080 12GB",
+        "GRAPHICNAME": "3080_tuf",
+        "COSTPRICE": "699",
+        "MSRP": "699",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "The TUF Gaming GeForce RTX 3080 has been stripped down and built back up to provide more robust power and cooling.",
+        "BRAND": "ASUS"
+    },
+    {
+        "PRODUCTNAME": "TUF Gaming GeForce RTX 3080 Ti",
+        "GRAPHICNAME": "3080Ti_tuf",
+        "COSTPRICE": "1199",
+        "MSRP": "1199",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "The TUF GAMING GeForce RTX 3080 Ti has been stripped down and built back up to provide more robust power and cooling.",
+        "BRAND": "ASUS"
+    },
+    {
+        "PRODUCTNAME": "TUF Gaming GeForce RTX 3090",
+        "GRAPHICNAME": "3090_tuf",
+        "COSTPRICE": "1499",
+        "MSRP": "1499",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "The TUF Gaming GeForce RTX™ 3090 has been stripped down and built back up to provide more robust power and cooling.",
+        "BRAND": "ASUS"
+    },
+    {
+        "PRODUCTNAME": "GAMING GeForce RTX 3070 AMP Holo",
+        "GRAPHICNAME": "3070_amp",
+        "COSTPRICE": "499",
+        "MSRP": "499",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "Get Amplified with the ZOTAC GAMING GeForce RTX™ 30 Series based on the NVIDIA Ampere architecture. Built with enhanced RT Cores and Tensor Cores, new streaming multiprocessors, and high-speed GDDR6 memory, the ZOTAC GAMING GeForce RTX 3070 AMP Holo gives rise to amplified gaming with high fidelity in style.",
+        "BRAND": "ZOTAC"
+    },
+    {
+        "PRODUCTNAME": "GAMING GeForce RTX 3070 Ti AMP Holo",
+        "GRAPHICNAME": "3070Ti_amp",
+        "COSTPRICE": "599",
+        "MSRP": "599",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "Relish ultra performance in the latest game titles and amplify your gaming experience with the ZOTAC GAMING GeForce RTX™ 3070 Ti AMP Holo. The fine-tuned balance between the cooling, acoustics and aesthetics of the ZOTAC GAMING graphics card gives rise to smooth high fidelity gaming.",
+        "BRAND": "ZOTAC"
+    },
+    {
+        "PRODUCTNAME": "GAMING GeForce RTX 3080 AMP Holo",
+        "GRAPHICNAME": "3080_amp",
+        "COSTPRICE": "699",
+        "MSRP": "699",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "Get Amplified with the ZOTAC GAMING GeForce RTX™ 30 Series based on the NVIDIA Ampere architecture. Built with enhanced RT Cores and Tensor Cores, new streaming multiprocessors, and superfast GDDR6X memory, the ZOTAC GAMING GeForce RTX 3080 AMP Holo gives rise to amplified gaming with ultra graphics fidelity in style.",
+        "BRAND": "ZOTAC"
+    },
+    {
+        "PRODUCTNAME": "GAMING GeForce RTX 3080 Ti AMP Holo",
+        "GRAPHICNAME": "3080Ti_amp",
+        "COSTPRICE": "1199",
+        "MSRP": "1199",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "Relish ultra performance in the latest game titles and amplify your gaming experience with the ZOTAC GAMING GeForce RTX™ 3080 Ti AMP Holo. The fine-tuned balance between the cooling, acoustics and aesthetics of the ZOTAC GAMING graphics card delivers the ultra gaming graphics fidelity.",
+        "BRAND": "ZOTAC"
+    },
+    {
+        "PRODUCTNAME": "GAMING GeForce RTX 3090 AMP Holo",
+        "GRAPHICNAME": "3090_amp",
+        "COSTPRICE": "1499",
+        "MSRP": "1499",
+        "QtyOnBackOrder": "10",
+        "QtyOnHand": "10",
+        "DESCRIPTION": "Get Amplified with the ZOTAC GAMING GeForce RTX™ 30 Series based on the NVIDIA Ampere architecture. Built with enhanced RT Cores and Tensor Cores, new streaming multiprocessors, and superfast GDDR6X memory, the ZOTAC GAMING GeForce RTX 3090 AMP Core Holo gives rise to the absolute gaming experience with ultra graphics fidelity.",
+        "BRAND": "ZOTAC"
+    }
+]
